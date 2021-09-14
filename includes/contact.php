@@ -12,6 +12,7 @@ function isPhone($phone)
 {
     return preg_match("/^[0-9 ]*$/", $phone);
 }
+
 function verifyInput($data)
 {
     $data = trim($data);
@@ -67,62 +68,62 @@ if (isset($_POST["envoyer"])) {
 
 ?>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" role="form">
-   <div class="row">
-      <div class="col-12 col-md-6">
-         <div class="form-group">
-            <label for="lname">Nom <strong class="text-warning">*</strong></label>
-            <input id="lname" type="text" name="lname" class="form-control" placeholder="Votre Nom"
-               value="<?php echo $lname; ?>">
-            <p class="text-danger">
-               <?php echo $lnameError; ?>
-            </p>
-         </div>
-      </div>
-      <div class="col-12 col-md-6">
-         <div class="form-group">
-            <label for="fname">Prénom <strong class="text-warning">*</strong></label>
-            <input id="fname" type="text" name="fname" class="form-control" placeholder="Votre Prénom"
-               value="<?php echo $fname; ?>">
-            <p class="text-danger">
-               <?php echo $fnameError; ?>
-            </p>
-         </div>
-      </div>
-   </div>
-   <div class="row">
-      <div class="col-12 col-md-6">
-         <div class="form-group">
-            <label for="email">Email <strong class="text-warning">*</strong></label>
-            <input id="email" type="text" name="email" class="form-control" placeholder="Votre Email"
-               value="<?php echo $email; ?>">
-            <p class="text-danger">
-               <?php echo $emailError; ?>
-            </p>
-         </div>
-      </div>
-      <div class="col-12 col-md-6">
-         <div class="form-group">
-            <label for="phone">Téléphone</label>
-            <input id="phone" type="tel" name="phone" class="form-control" placeholder="Votre Numéro de téléphone"
-               maxlength="10" value="<?php echo $phone; ?>">
-            <p class="text-danger">
-               <?php echo $phoneError; ?>
-            </p>
-         </div>
-      </div>
-   </div>
-   <div class="form-group">
-      <label for="message">Message <strong class="text-warning">*</strong></label>
-      <textarea id="message" name="message" class="form-control" placeholder="Votre Message" rows="1"
-         maxlength="255"><?php echo $message; ?></textarea>
-      <p class="text-danger">
-         <?php echo $messageError; ?>
-      </p>
-   </div>
-   <p><strong class="text-warning">* Ces informations sont requises.</strong></p>
-   <br>
-   <input type="submit" class="btn btn-primary" value="Envoyer" name="envoyer"><br><br>
-   <h4 class="text-primary" style="display:<?php if($isSuccess) echo 'block'; else echo 'none'; ?>">Votre message a
-      bien été envoyé. Merci de m'avoir contacté !
-   </h4>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label for="lname">Nom <strong class="text-warning">*</strong></label>
+                <input id="lname" type="text" name="lname" class="form-control" placeholder="Votre Nom"
+                       value="<?php echo $lname; ?>">
+                <p class="text-danger">
+                    <?php echo $lnameError; ?>
+                </p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label for="fname">Prénom <strong class="text-warning">*</strong></label>
+                <input id="fname" type="text" name="fname" class="form-control" placeholder="Votre Prénom"
+                       value="<?php echo $fname; ?>">
+                <p class="text-danger">
+                    <?php echo $fnameError; ?>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label for="email">Email <strong class="text-warning">*</strong></label>
+                <input id="email" type="text" name="email" class="form-control" placeholder="Votre Email"
+                       value="<?php echo $email; ?>">
+                <p class="text-danger">
+                    <?php echo $emailError; ?>
+                </p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input id="phone" type="tel" name="phone" class="form-control" placeholder="Votre Numéro de téléphone"
+                       maxlength="10" value="<?php echo $phone; ?>">
+                <p class="text-danger">
+                    <?php echo $phoneError; ?>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="message">Message <strong class="text-warning">*</strong></label>
+        <textarea id="message" name="message" class="form-control" placeholder="Votre Message" rows="1"
+                  maxlength="255"><?php echo $message; ?></textarea>
+        <p class="text-danger">
+            <?php echo $messageError; ?>
+        </p>
+    </div>
+    <p><strong class="text-warning">* Ces informations sont requises.</strong></p>
+    <br>
+    <input type="submit" class="btn btn-primary" value="Envoyer" name="envoyer"><br><br>
+    <h4 class="text-primary" style="display:<?php if ($isSuccess) echo 'block'; else echo 'none'; ?>">Votre message a
+        bien été envoyé. Merci de m'avoir contacté !
+    </h4>
 </form>
