@@ -4,25 +4,24 @@
       <title>Victor De Domenico</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lumen/bootstrap.min.css">
-      <!--  CDN Thème pour Bootstrap-->
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-      <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-      <link type="text/css" rel="stylesheet" href="style.css">
-      <script src="script.js"></script>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
-      <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script> <!-- CDN Typer.js-->
       <link rel="shortcut icon" href="img/vd2.ico" type="image/x-icon">
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/lumen/bootstrap.min.css'/>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js'></script>
+      <link href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic" rel="stylesheet"/>
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'/>
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script src="script.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/navbarstyle.css">
+      <link rel="stylesheet" type="text/css" href="css/footerstyle.css">
+      <link rel="stylesheet" type="text/css" href="css/contactstyle.css">
+      <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script><!-- CDN Typer.js-->
    </head>
-   <body data-spy="scroll" data-target=".navbar" data-offset="60">
-
+   <body data-spy="scroll" data-target=".navbar" data-offset="0">
       <!-- Menu principal -->
       <?php
          include("includes/navbar.php");
          ?>
-
       <!-- Introduction -->
       <section id="introduction" class="container-fluid">
          <div class="col-xs-8 col-md-4 profile-picture"><img src="img/pdp.png" class="rounded-circle" alt="ma photo">
@@ -38,12 +37,19 @@
                <span class="cursor" data-owner="main"></span> <!-- Typer.js-->
             </h2>
             <br>
-            <h3>Bienvenue sur mon Portfolio version 1<span class="blue">.</span>3 !</h3>
+            <h3>Bienvenue sur mon Portfolio version 1<span class="blue">.</span>4 !</h3>
+         </div>
+         <!-- Changelog -->
+         <div class="card border-primary mb-3">
+            <div id="flip" class="card-header blue">Cliquez ici pour connaître/cacher les nouveautés de cette version !</div>
+            <div id="panel" class="card-body">
+               <p>- Ajout d'un backoffice pour la gestion de projet (insert,update,view,delete)</p>
+               <p>- Ajout d'une fonctionnalité de connexion/déconnexion pour accéder au backoffice (login,logout)</p>
+            </div>
+         </div>
          </div>
       </section>
-
       <hr class="little">
-
       <!-- Présentation personnelle -->
       <section id="about" class="container-fluid">
          <div class="heading">
@@ -61,335 +67,74 @@
                class="fas fa-download"></i> Télécharger Mon CV</a>
          </div>
       </section>
-
       <!-- Mes projets-->
       <section id="projets">
          <div class="container">
-            <div class="heading">
-               <h2>Mes projets</h2>
-               <div class="divider"></div>
-               <p>Voici les projets réalisés durant ma scolarité<br>
-                  Cliquez sur le carrousel pour en savoir plus !
-               </p>
-            </div>
-            <div id="mesprojets" class="carousel slide" data-ride="carousel">
-               <!-- Carousel -->
-               <ol class="carousel-indicators">
-                  <li data-target="#mesprojets" data-slide-to="0" class="active"></li>
-                  <li data-target="#mesprojets" data-slide-to="1"></li>
-                  <li data-target="#mesprojets" data-slide-to="2"></li>
-                  <li data-target="#mesprojets" data-slide-to="3"></li>
-                  <li data-target="#mesprojets" data-slide-to="4"></li>
-                  <li data-target="#mesprojets" data-slide-to="5"></li>
-                  <li data-target="#mesprojets" data-slide-to="6"></li>
-                  <li data-target="#mesprojets" data-slide-to="7"></li>
-               </ol>
-               <div class="carousel-inner" role="listbox">
-                  <div class="carousel-item active" data-toggle="modal" data-target="#modalOne">
-                     <img src="img/arduinom.png" class="d-block w-100" alt="Radar Pédagogique">
-                     <div class="carousel-caption d-none d-md-block colorw">
-                        <h5>Projet ARDUINO</h5>
-                        <p>Réalisation d'un radar pédagogique</p>
-                     </div>
-                  </div>
-                  <div class="carousel-item" data-toggle="modal" data-target="#modalTwo">
-                     <img src="img/pfcm.png" class="d-block w-100" alt="Pierres-Feuilles-Ciseaux">
-                     <div class="carousel-caption d-none d-md-block colorw">
-                        <h5>Projet HTML CSS</h5>
-                        <p>Réalisation d'un Pierres-Feuilles-Ciseaux</p>
-                     </div>
-                  </div>
-                  <div class="carousel-item" data-toggle="modal" data-target="#modalThree">
-                     <img src="img/roulettem.png" class="d-block w-100" alt="Roulette Russe">
-                     <div class="carousel-caption d-none d-md-block colorw">
-                        <h5>Projet PYTHON</h5>
-                        <p>Réalisation d'une Roulette Russe</p>
-                     </div>
-                  </div>
-                  <div class="carousel-item" data-toggle="modal" data-target="#modalFour">
-                     <img src="img/edtm.png" class="d-block w-100" alt="Espace de travail">
-                     <div class="carousel-caption d-none d-md-block colorw">
-                        <h5>Projet HTML CSS JAVASCRIPT PHP</h5>
-                        <p>Réalisation d'un Espace de travail</p>
-                     </div>
-                  </div>
-                  <div class="carousel-item" data-toggle="modal" data-target="#modalFive">
-                     <img src="img/cvm.png" class="d-block w-100" alt="CV Piscine">
-                     <div class="carousel-caption d-none d-md-block colorb">
-                        <h5>Projet HTML CSS</h5>
-                        <p>Réalisation d'un CV en piscine</p>
-                     </div>
-                  </div>
-                  <div class="carousel-item" data-toggle="modal" data-target="#modalSix">
-                     <img src="img/wordpressm.png" class="d-block w-100" alt="Boutique de jeux de sociétés">
-                     <div class="carousel-caption d-none d-md-block colorb">
-                        <h5>Site Catalogue de jeux de sociétés</h5>
-                        <p>Réalisation d'une boutique de jeux de sociétés</p>
-                     </div>
-                  </div>
-                  <div class="carousel-item" data-toggle="modal" data-target="#modalSeven">
-                     <img src="img/agencem.png" class="d-block w-100" alt="Agence de Voyage">
-                     <div class="carousel-caption d-none d-md-block colorb">
-                        <h5>Projet HTML CSS</h5>
-                        <p>Réalisation d'une agence de voyage</p>
-                     </div>
-                  </div>
-                  <div class="carousel-item" data-toggle="modal" data-target="#modalEight">
-                     <img src="img/portfoliom.png" class="d-block w-100" alt="Portfolio 1v1">
-                     <div class="carousel-caption d-none d-md-block colorw sp">
-                        <h5>Site personnel V1.1</h5>
-                        <p>Réalisation d'un portfolio professionnel</p>
-                     </div>
-                  </div>
-               </div>
-               <a class="carousel-control-prev" href="#mesprojets" role="button" data-slide="prev">
-               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-               <span class="sr-only">Previous</span>
-               </a>
-               <a class="carousel-control-next" href="#mesprojets" role="button" data-slide="next">
-               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-               <span class="sr-only">Next</span>
-               </a>
-            </div>
+         <div class="heading">
+            <h2>Mes projets</h2>
+            <div class="divider"></div>
+            <p>Voici les projets réalisés durant ma scolarité<br>
+               Cliquez sur le carrousel pour en savoir plus !
+            </p>
          </div>
-         <div class="modal fade" id="modalOne" tabindex="-1" aria-labelledby="modalOneLabel" aria-hidden="true">
-            <!-- Modal -->
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="modalOneLabel">Radar Pédagogique</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                     </button>
-                  </div>
-                  <div class="modal-body">
-                     <p><span class="underline">Période de réalisation :</span> Octobre 2019.<br>
-                        <span class="underline">Contexte du projet :</span> Projet réalisé suite à une initiation au
-                        ARDUINO afin de réaliser un radar pédagogique pour le
-                        lycée.<br>
-                        <span class="underline">Technologies utilisées :</span> ARDUINO.<br>
-                        <span class="underline">Bilan :</span> Ce projet m'a permis de découvrir davantage l'ARDUINO
-                        et les cartes LIDAR et la construction d'appareil
-                        électronique.<br>
-                     </p>
-                     <a href="img/arduino1.png" target="_blank"><img src="img/arduino1.png"
-                        alt="image arduino1"></a>
-                     <a href="img/arduino2.png" target="_blank"><img src="img/arduino2.png"
-                        alt="image arduino2"></a>
-                     <a href="img/arduino3.png" target="_blank"><img src="img/arduino3.png"
-                        alt="image arduino3"></a>
-                     <a href="img/arduino4.png" target="_blank"><img src="img/arduino4.png"
-                        alt="image arduino4"></a>
-                     <p>Cliquez sur les img pour les agrandir !</p>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                  </div>
+         <div id="mesprojets" class="carousel slide" data-ride="carousel">
+         <!-- Carousel -->
+         <ol class="carousel-indicators">
+         <?php
+            require('admin/connexion.php');
+            echo '';
+            $co = connexionBdd();
+            $statement = $co->query('SELECT * FROM projets');
+            $projets = $statement->fetchAll();
+            foreach($projets as $projet)
+            {
+               if($projet['id_projet'] == 1)
+               {
+                  echo '<li data-target="#mesprojets" data-slide-to="' . $projet['id_projet'] . '" class="active"></li>';
+               }
+               else
+               {
+                  echo '<li data-target="#mesprojets" data-slide-to="' . $projet['id_projet'] . '"></li>';
+               }
+            }
+            echo'</ol>
+            <div class="carousel-inner" role="listbox">';
+            foreach($projets as $projet)
+            {
+               if($projet['id_projet'] == 1)
+               {
+                  echo '<div class="carousel-item active">
+                        <a target="_blank" href="view.php?id=' . $projet['id_projet'] . '"><img src="img/' . $projet['image1_projet'] . '" class="d-block w-100" alt="Radar Pédagogique"></a>
+                        <div class="carousel-caption d-none d-md-block colorw">
+                        <a target="_blank" href="view.php?id=' . $projet['id_projet'] . '"><h5>' . $projet['titre_projet'] . '</h5></a>
+                        </div>
+                     </div>';
+               }
+               else
+               {
+                  echo '<div class="carousel-item">
+                        <a target="_blank" href="view.php?id=' . $projet['id_projet'] . '"><img src="img/' . $projet['image1_projet'] . '" class="d-block w-100" alt="Pierres-Feuilles-Ciseaux"></a>
+                        <div class="carousel-caption d-none d-md-block colorw">
+                        <a target="_blank" href="view.php?id=' . $projet['id_projet'] . '"><h5>' . $projet['titre_projet'] . '</h5></a>
+                        </div>
+                     </div>';
+               }
+            }
+                   echo'</div>
+                  <a class="carousel-control-prev" href="#mesprojets" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#mesprojets" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                  </a>
                </div>
-            </div>
-         </div>
-         <div class="modal fade" id="modalTwo" tabindex="-1" aria-labelledby="modalTwoLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="modalTwoLabel">Pierre-Feuille-Ciseaux</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                     </button>
-                  </div>
-                  <div class="modal-body">
-                     <p><span class="underline">Période de réalisation :</span> Février 2020.<br>
-                        <span class="underline">Contexte du projet :</span> Projet réalisé suite à une initiation au
-                        HTML CSS afin de réaliser un site de pierre-feuille-ciseaux.<br>
-                        <span class="underline">Technologies utilisées :</span> HTML CSS.<br>
-                        <span class="underline">Bilan :</span> Ce projet m'a permis de découvrir davantage la
-                        construction de site web et les différents langages utilisés.<br>
-                     </p>
-                     <a href="img/pfc1.png" target="_blank"><img src="img/pfc1.png" alt="image pfc1"></a>
-                     <p>Cliquez sur les img pour les agrandir !</p>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="modal fade" id="modalThree" tabindex="-1" aria-labelledby="modalThreeLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="modalThreeLabel">Roulette Russe</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                     </button>
-                  </div>
-                  <div class="modal-body">
-                     <p><span class="underline">Période de réalisation :</span> Novembre 2019.<br>
-                        <span class="underline">Contexte du projet :</span> Projet réalisé suite à une initiation au
-                        PYTHON afin de créer un jeu.<br>
-                        <span class="underline">Technologies utilisées :</span> PYTHON.<br>
-                        <span class="underline">Bilan :</span> Ce projet m'a permis de découvrir davantage PYTHON et
-                        les algorithmes.<br>
-                     </p>
-                     <a href="img/roulette1.png" target="_blank"><img src="img/roulette1.png"
-                        alt="image roulette1"></a>
-                     <p>Cliquez sur les img pour les agrandir !</p>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="modal fade" id="modalFour" tabindex="-1" aria-labelledby="modalFourLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="modalFourLabel">Espace de Travail</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                     </button>
-                  </div>
-                  <div class="modal-body">
-                     <p><span class="underline">Période de réalisation :</span> Mai-Juin 2020.<br>
-                        <span class="underline">Contexte du projet :</span> Projet final de l'année réalisé pour
-                        faire un bilan des langages étudiés au cours de l'année.<br>
-                        <span class="underline">Technologies utilisées :</span> HTML CSS JAVASCRIPT PHP.<br>
-                        <span class="underline">Bilan :</span> Ce projet m'a permis de mettre en oeuvre mes
-                        connaissances de langages déja vu et de créer un projet concret.<br>
-                     </p>
-                     <a href="img/edt1.PNG" target="_blank"><img src="img/edt1.PNG" alt="image edt1"></a>
-                     <a href="img/edt2.PNG" target="_blank"><img src="img/edt2.PNG" alt="image edt2"></a>
-                     <a href="img/edt3.PNG" target="_blank"><img src="img/edt3.PNG" alt="image edt3"></a>
-                     <a href="img/edt4.PNG" target="_blank"><img src="img/edt4.PNG" alt="image edt4"></a>
-                     <p>Cliquez sur les img pour les agrandir !</p>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="modal fade" id="modalFive" tabindex="-1" aria-labelledby="modalFiveLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="modalFiveLabel">CV Piscine</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                     </button>
-                  </div>
-                  <div class="modal-body">
-                     <p><span class="underline">Période de réalisation :</span> Septembre 2020.<br>
-                        <span class="underline">Contexte du projet :</span> Projet réalisé en début d'année dans le
-                        cadre d'une immersion à la programmation.<br>
-                        <span class="underline">Technologies utilisées :</span> HTML CSS.<br>
-                        <span class="underline">Bilan :</span> Ce projet m'a permis d'apprendre le travail en groupe
-                        en temps limité et de voir le codage avec des professionnels.<br>
-                     </p>
-                     <a href="img/cv1.png" target="_blank"><img src="img/cv1.png" alt="image cv1"></a>
-                     <p>Cliquez sur les img pour les agrandir !</p>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="modal fade" id="modalSix" tabindex="-1" aria-labelledby="modalSixLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="modalSixLabel">Boutique de jeux de sociétés</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                     </button>
-                  </div>
-                  <div class="modal-body">
-                     <p><span class="underline">Période de réalisation :</span> Octobre-Novembre 2020.<br>
-                        <span class="underline">Contexte du projet :</span> Projet réalisé en début d'année dans le
-                        cadre d'un apprentissage de WordPress et des bonnes pratiques<br>
-                        <span class="underline">Technologies utilisées :</span> WordPress(CMS).<br>
-                        <span class="underline">Bilan :</span> Ce projet m’a aidé à comprendre le fonctionnement des
-                        CMS et de WORDPRESS qui très présent sur les sites internet. wordpress.org<br>
-                     </p>
-                     <a href="img/wordpress1.png" target="_blank"><img src="img/wordpress1.png"
-                        alt="image wordpress1"></a>
-                     <a href="img/wordpress2.png" target="_blank"><img src="img/wordpress2.png"
-                        alt="image wordpress2"></a>
-                     <a href="img/wordpress3.png" target="_blank"><img src="img/wordpress3.png"
-                        alt="image wordpress3"></a>
-                     <p>Cliquez sur les img pour les agrandir !</p>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="modal fade" id="modalSeven" tabindex="-1" aria-labelledby="modalSevenLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="modalSevenLabel">Agence de voyage</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                     </button>
-                  </div>
-                  <div class="modal-body">
-                     <p><span class="underline">Période de réalisation :</span> Octobre 2020.<br>
-                        <span class="underline">Contexte du projet :</span> Projet réalisé en début d'année dans le
-                        cadre de l'apprentissage du HTML et CSS.<br>
-                        <span class="underline">Technologies utilisées :</span> HTML CSS.<br>
-                        <span class="underline">Bilan :</span> Ce projet m'a permis de construire mon premier site
-                        web guidé par un professionnel et d'apprendre les deux langages.<br>
-                     </p>
-                     <a href="img/agence1.png" target="_blank"><img src="img/agence1.png"
-                        alt="image agence1"></a>
-                     <a href="img/agence2.png" target="_blank"><img src="img/agence2.png"
-                        alt="image agence2"></a>
-                     <p>Cliquez sur les img pour les agrandir !</p>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="modal fade" id="modalEight" tabindex="-1" aria-labelledby="modalEightLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="modalEightLabel">Portfolio 1v1</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                     </button>
-                  </div>
-                  <div class="modal-body">
-                     <p><span class="underline">Période de réalisation :</span> Septembre-Novembre 2020.<br>
-                        <span class="underline">Contexte du projet :</span> Projet réalisé afin de construite mon
-                        site personnel témoin de mon apprentissage et de ma montée en compétences.<br>
-                        <span class="underline">Technologies utilisées :</span> HTML CSS.<br>
-                        <span class="underline">Bilan :</span> Ce projet m'a permis de mettre en valeur mes
-                        compétences en les appliquant sur un site personnel et de témoigner de
-                        toutes mes réalisations.<br>
-                     </p>
-                     <a href="img/portfolio1.png" target="_blank"><img src="img/portfolio1.png"
-                        alt="image portfolio1"></a>
-                     <a href="img/portfolio2.png" target="_blank"><img src="img/portfolio2.png"
-                        alt="image portfolio2"></a>
-                     <p>Cliquez sur les img pour les agrandir !</p>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                  </div>
-               </div>
-            </div>
-         </div>
+            </div>';
+            $co = null;
+            ?>
       </section>
-
       <hr class="little">
-
       <!-- Mes compétences-->
       <section id="competences">
          <div class="container">
@@ -441,7 +186,7 @@
                            <p class="text-mute"><small><i class="far fa-clock"></i> Octobre 2020</small></p>
                         </div>
                         <div class="timeline-body">
-                           <p>BOOTSTRAP est un framework CSS permettant de réaliser des sites responsive</p>
+                           <p>BOOTSTRAP est un framework CSS permettant de réaliser des sites responsives</p>
                         </div>
                      </div>
                   </div>
@@ -499,9 +244,7 @@
             </div>
          </div>
       </section>
-
       <div class="bas">
-
          <section id="contact">
             <div class="container">
                <div class="heading">
@@ -523,14 +266,11 @@
                </div>
             </div>
          </section>
-
          <hr class="little">
-         
          <!-- Copyright-->
          <?php
             include("includes/footer.php");
             ?>
-
       </div>
    </body>
 </html>

@@ -1,12 +1,9 @@
-<head>
-   <link rel="stylesheet" type="text/css" href="./css/navbarstyle.css">
-</head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navigation">
    <div class="container-fluid">
       <a class="navbar-brand" href="index.php">Victor De Domenico</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu"
          aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-center" id="menu">
          <ul class="navbar-nav mr-auto">
@@ -27,5 +24,6 @@
             </li>
          </ul>
       </div>
+      <button type="button" class="btn btn-secondary" onclick="location.href='admin/login.php';"><i class="fas fa-tools"></i> Connexion</button>
    </div>
 </nav>

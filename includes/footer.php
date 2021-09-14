@@ -1,6 +1,3 @@
-<head>
-   <link rel="stylesheet" type="text/css" href="./css/footerstyle.css">
-</head>
 <footer>
    <a href="#introduction"><i class="fas fa-angle-up" data-toggle="tooltip" title="Remonter en haut de la page"></i></a>
    <!-- Tooltip-->

@@ -1,23 +1,23 @@
 /* FOOTER */
 
 footer {
-  text-align: center;
-  margin-bottom: -7px;
+	text-align: center;
+	margin-bottom: -7px;
 }
 
 footer .fas {
-  font-size: 25px;
+	font-size: 25px;
 }
 
 footer .fas:hover {
-  font-size: 30px;
+	font-size: 30px;
 }
 
 .copyright {
-  font-weight: bold;
-  color: #117298;
+	font-weight: bold;
+	color: #117298;
 }
 
 .fa-angle-up {
-  cursor: help;
+	cursor: help;
 }

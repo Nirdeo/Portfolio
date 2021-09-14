@@ -1,4 +1,8 @@
 $(function () {
+  /*Effet Jquery 1v2*/
+  $("#flip").click(function () {
+    $("#panel").slideToggle("slow");
+  });
   /* Tooltip */
   $('[data-toggle="tooltip"]').tooltip();
   $(".icon1").mouseenter(function () {
