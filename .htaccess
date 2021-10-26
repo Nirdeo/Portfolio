@@ -1,0 +1,2 @@
+ErrorDocument 404 /Portfolio/404.php
+ErrorDocument 404 https://vdedomenico.lyceestvincent.fr/404.php

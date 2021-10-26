@@ -6,7 +6,7 @@ if (!isset($_SESSION["username"])) {
 }
 require_once("connexion.php");
 
-$idError = $titreError = $periodeError = $contexteError = $bilanError = $imageError1 = $imageError2 = $imageError3 = $imageError4 = $titre = $periode = $contexte = $bilan = $id = $checkbox = $image1 = $image2 = $image3 = $image4 = "";
+$idError = $titreError = $periodeError = $contexteError = $bilanError = $imageError1 = $imageError2 = $imageError3 = $imageError4 = $documentError1 = $documentError2 = $titre = $periode = $contexte = $bilan = $id = $checkbox = $image1 = $image2 = $image3 = $image4 = $document1 = $document2 = "";
 
 if (!empty($_POST)) {
     $titre = checkInput($_POST['titre']);
@@ -14,14 +14,20 @@ if (!empty($_POST)) {
     $contexte = checkInput($_POST['contexte']);
     $bilan = checkInput($_POST['bilan']);
     $id = checkInput($_POST['id']);
+    $document1 = checkInput($_FILES['document1']['name']);
+    $document2 = checkInput($_FILES['document2']['name']);
     $image1 = checkInput($_FILES['image1']['name']);
     $image2 = checkInput($_FILES['image2']['name']);
     $image3 = checkInput($_FILES['image3']['name']);
     $image4 = checkInput($_FILES['image4']['name']);
+    $documentPath1 = '../docs/' . basename($document1);
+    $documentPath2 = '../docs/' . basename($document2);
     $imagePath1 = '../img/' . basename($image1);
     $imagePath2 = '../img/' . basename($image2);
     $imagePath3 = '../img/' . basename($image3);
     $imagePath4 = '../img/' . basename($image4);
+    $documentExtension1 = pathinfo($document1, PATHINFO_EXTENSION);
+    $documentExtension2 = pathinfo($document2, PATHINFO_EXTENSION);
     $imageExtension1 = pathinfo($imagePath1, PATHINFO_EXTENSION);
     $imageExtension2 = pathinfo($imagePath2, PATHINFO_EXTENSION);
     $imageExtension3 = pathinfo($imagePath3, PATHINFO_EXTENSION);
@@ -51,6 +57,16 @@ if (!empty($_POST)) {
 
     if (empty($bilan)) {
         $bilanError = 'Ce champ ne peut pas être vide';
+        $isSuccess = false;
+    }
+
+    if (empty($document1)) {
+        $documentError1 = 'Ce champ ne peut pas être vide';
+        $isSuccess = false;
+    }
+
+    if (empty($document2)) {
+        $documentError2 = 'Ce champ ne peut pas être vide';
         $isSuccess = false;
     }
 
@@ -138,17 +154,15 @@ if (!empty($_POST)) {
     if ($isSuccess && $isUploadSuccess) {
         $co = connexionBdd();
         $checkbox = $_POST['checkbox'];
-        $statement = $co->prepare("INSERT INTO projets (id_projet, titre_projet, date_projet, contexte_projet, bilan_projet, image1_projet, image2_projet, image3_projet, image4_projet) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $statement->execute(array($id, $titre, $periode, $contexte, $bilan, $image1, $image2, $image3, $image4));
+        $statement = $co->prepare("INSERT INTO projets (id_projet, titre_projet, date_projet, contexte_projet, bilan_projet, image1_projet, image2_projet, image3_projet, image4_projet, document1_projet, document2_projet) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $statement->execute(array($id, $titre, $periode, $contexte, $bilan, $image1, $image2, $image3, $image4, $document1, $document2));
         for ($i = 0; $i < sizeof($checkbox); $i++) {
             $req = $co->prepare("INSERT INTO lien_technos (fk_id_projet, fk_id_techno) VALUES (?,?)");
             $req->execute(array($id, $checkbox[$i]));
         }
         $co = null;
         header("Location: index.php");
-
     }
-
 }
 
 function checkInput($data)
@@ -163,14 +177,15 @@ function checkInput($data)
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <title>Victor De Domenico</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../img/vd2.ico" type="image/x-icon">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.1/lumen/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/lumen/bootstrap.min.css'>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.bundle.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js'></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic"
           rel="stylesheet"/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
@@ -183,6 +198,7 @@ function checkInput($data)
         });
     </script>
 </head>
+
 <body>
 <div class="container admin">
     <h1>Back Office</h1>
@@ -222,7 +238,7 @@ function checkInput($data)
         <input type="file" id="image1" name="image1">
         <span class="help-inline"><?php echo $imageError1; ?></span>
         <br>
-        <label for="image2">Sélectionner une seconde image:</label><br>
+        <label for="image2">Sélectionner une deuxième image:</label><br>
         <input type="file" id="image2" name="image2">
         <span class="help-inline"><?php echo $imageError2; ?></span>
         <br>
@@ -234,9 +250,18 @@ function checkInput($data)
         <input type="file" id="image4" name="image4">
         <span class="help-inline"><?php echo $imageError4; ?></span>
         <br>
+        <label for="document1">Sélectionner un premier document pour la documentation</label>
+        <input type="file" id="document1" name="document1">
+        <span class="help-inline"><?php echo $documentError1; ?></span>
+        <br>
+        <label for="document2"></label>Sélectionner un deuxième document pour la documentation</label>
+        <input type="file" id="document2" name="document2">
+        <span class="help-inline"></span><?php echo $documentError2; ?></span>
+        <br>
         <button type="submit" class="btn btn-success"><i class="fas fa-pen"></i> Ajouter</button>
         <a class="btn btn-primary" href="index.php"><i class="far fa-arrow-alt-circle-left"></i> Retour</a>
     </form>
 </div>
 </body>
+
 </html>

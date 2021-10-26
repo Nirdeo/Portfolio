@@ -14,9 +14,9 @@ if (!isset($_SESSION["username"])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../img/vd2.ico" type="image/x-icon">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.1/quartz/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/lumen/bootstrap.min.css'>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.bundle.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js'></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic"
           rel="stylesheet"/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
@@ -54,7 +54,7 @@ if (!isset($_SESSION["username"])) {
             echo "<th>" . $item["id_projet"] . "</th>";
             echo "<th>" . $item["titre_projet"] . "</th>";
             echo "<th>";
-            echo '<a class="btn btn-info" href="view.php?id=' . $item["id_projet"] . '"><i class="far fa-eye"></i> Voir</a>';
+            echo '<a class="btn btn-secondary" href="view.php?id=' . $item["id_projet"] . '"><i class="far fa-eye"></i> Voir</a>';
             echo " ";
             echo '<a class="btn btn-primary" href="update.php?id=' . $item["id_projet"] . '""><i class="far fa-edit"></i> Modifier</a>';
             echo " ";

@@ -33,14 +33,15 @@ function checkInput($data)
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <title>Victor De Domenico</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../img/vd2.ico" type="image/x-icon">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.1/lumen/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/lumen/bootstrap.min.css'>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.bundle.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js'></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic"
           rel="stylesheet"/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
@@ -53,6 +54,7 @@ function checkInput($data)
         });
     </script>
 </head>
+
 <body>
 <div class="container admin">
     <h1>Back Office</h1>
@@ -66,4 +68,5 @@ function checkInput($data)
     </form>
 </div>
 </body>
+
 </html>

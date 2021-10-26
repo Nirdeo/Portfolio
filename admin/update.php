@@ -10,7 +10,7 @@ if (!empty($_GET["id"])) {
     $id = checkInput($_GET["id"]);
 }
 
-$titreError = $periodeError = $contexteError = $bilanError = $imageError1 = $imageError2 = $imageError3 = $imageError4 = $titre = $periode = $contexte = $bilan = $checkbox = $image1 = $image2 = $image3 = $image4 = "";
+$titreError = $periodeError = $contexteError = $bilanError = $imageError1 = $imageError2 = $imageError3 = $imageError4 = $documentError1 = $documentError2 = $titre = $periode = $contexte = $bilan = $checkbox = $image1 = $image2 = $image3 = $image4 = $document1 = $document2 = "";
 
 if (!empty($_POST)) {
     $titre = checkInput($_POST['titre']);
@@ -21,10 +21,14 @@ if (!empty($_POST)) {
     $image2 = checkInput($_FILES['image2']['name']);
     $image3 = checkInput($_FILES['image3']['name']);
     $image4 = checkInput($_FILES['image4']['name']);
+    $documentPath1 = '../docs/' . basename($document1);
+    $documentPath2 = '../docs/' . basename($document2);
     $imagePath1 = '../img/' . basename($image1);
     $imagePath2 = '../img/' . basename($image2);
     $imagePath3 = '../img/' . basename($image3);
     $imagePath4 = '../img/' . basename($image4);
+    $documentExtension1 = pathinfo($document1, PATHINFO_EXTENSION);
+    $documentExtension2 = pathinfo($document2, PATHINFO_EXTENSION);
     $imageExtension1 = pathinfo($imagePath1, PATHINFO_EXTENSION);
     $imageExtension2 = pathinfo($imagePath2, PATHINFO_EXTENSION);
     $imageExtension3 = pathinfo($imagePath3, PATHINFO_EXTENSION);
@@ -51,23 +55,32 @@ if (!empty($_POST)) {
         $isSuccess = false;
     }
 
+    if (empty($document1)) {
+        $isRessourceUpdated = false;
+    }
+
+    if (empty($document2)) {
+        $isRessourceUpdated = false;
+    }
+
     if (empty($image1)) {
-        $isImageUpdated = false;
+        $isRessourceUpdated = false;
     }
 
     if (empty($image2)) {
-        $isImageUpdated = false;
+        $isRessourceUpdated = false;
     }
 
     if (empty($image3)) {
-        $isImageUpdated = false;
+        $isRessourceUpdated = false;
     }
 
     if (empty($image4)) {
-        $isImageUpdated = false;
+        $isRessourceUpdated = false;
     } else {
-        $isImageUpdated = true;
+        $isRessourceUpdated = true;
         $isUploadSuccess = true;
+
         if ($imageExtension1 != "jpg" && $imageExtension1 != "png" && $imageExtension1 != "jpeg" && $imageExtension1 != "gif") {
             $imageError1 = "Les fichiers autorisés sont: .jpg, .jpeg .png, .gif";
             $isUploadSuccess = false;
@@ -129,12 +142,12 @@ if (!empty($_POST)) {
         }
     }
 
-    if (($isSuccess && $isImageUpdated && $isUploadSuccess) || ($isSuccess && !$isImageUpdated)) {
+    if (($isSuccess && $isRessourceUpdated && $isUploadSuccess) || ($isSuccess && !$isRessourceUpdated)) {
         $co = connexionBdd();
         $checkbox = $_POST['checkbox'];
-        if ($isImageUpdated) {
-            $statement = $co->prepare("UPDATE projets SET titre_projet = ?, date_projet = ?, contexte_projet = ?, bilan_projet = ?, image1_projet = ?, image2_projet = ?, image3_projet = ?, image4_projet = ? WHERE id_projet = ?");
-            $statement->execute(array($titre, $periode, $contexte, $bilan, $image1, $image2, $image3, $image4, $id));
+        if ($isRessourceUpdated) {
+            $statement = $co->prepare("UPDATE projets SET titre_projet = ?, date_projet = ?, contexte_projet = ?, bilan_projet = ?, image1_projet = ?, image2_projet = ?, image3_projet = ?, image4_projet = ?, document1_projet = ?, document2_projet = ? WHERE id_projet = ?");
+            $statement->execute(array($titre, $periode, $contexte, $bilan, $image1, $image2, $image3, $image4, $document1, $document2, $id));
             // Delete + Insert Into à la place de UPDATE car sinon Duplicate entry for key Primary
             $statement2 = $co->prepare("DELETE FROM lien_technos WHERE fk_id_projet = ?");
             $statement2->execute(array($id));
@@ -155,15 +168,17 @@ if (!empty($_POST)) {
         }
         $co = null;
         header("Location: index.php");
-    } else if ($isImageUpdated && !$isUploadSuccess) {
+    } else if ($isRessourceUpdated && !$isUploadSuccess) {
         $co = connexionBdd();
-        $statement = $co->prepare("SELECT image1_projet, image2_projet, image3_projet, image4_projet FROM projets WHERE id_projet = ?");
+        $statement = $co->prepare("SELECT image1_projet, image2_projet, image3_projet, image4_projet, document1_projet, document2_projet FROM projets WHERE id_projet = ?");
         $statement->execute(array($id));
         $item = $statement->fetch();
         $image1 = $item['image1_projet'];
         $image2 = $item['image2_projet'];
         $image3 = $item['image3_projet'];
         $image4 = $item['image4_projet'];
+        $document1 = $item['document1_projet'];
+        $document2 = $item['document2_projet'];
         $co = null;
     }
 } else {
@@ -179,6 +194,8 @@ if (!empty($_POST)) {
     $image2 = $item['image2_projet'];
     $image3 = $item['image3_projet'];
     $image4 = $item['image4_projet'];
+    $document1 = $item['document1_projet'];
+    $document2 = $item['document2_projet'];
     $co = null;
 }
 
@@ -199,9 +216,9 @@ function checkInput($data)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../img/vd2.ico" type="image/x-icon">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.1/lumen/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/lumen/bootstrap.min.css'>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.bundle.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js'></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic"
           rel="stylesheet"/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
@@ -253,31 +270,43 @@ function checkInput($data)
         }
         $query->closeCursor();
         ?>
-        <br>
+        <br><br>
         <label>Image:</label>
         <p><?php echo $image1; ?></p>
         <label for="image1">Sélectionner une première image:</label><br>
         <input type="file" id="image1" name="image1">
         <span class="help-inline"><?php echo $imageError1; ?></span>
-        <br>
+        <br><br>
         <label>Image:</label>
         <p><?php echo $image2; ?></p>
         <label for="image2">Sélectionner une seconde image:</label><br>
         <input type="file" id="image2" name="image2">
         <span class="help-inline"><?php echo $imageError2; ?></span>
-        <br>
+        <br><br>
         <label>Image:</label>
         <p><?php echo $image3; ?></p>
         <label for="image3">Sélectionner une troisième image:</label><br>
         <input type="file" id="image3" name="image3">
         <span class="help-inline"><?php echo $imageError3; ?></span>
-        <br>
+        <br><br>
         <label>Image:</label>
         <p><?php echo $image4; ?></p>
         <label for="image4">Sélectionner une quatrième image:</label><br>
         <input type="file" id="image4" name="image4">
         <span class="help-inline"><?php echo $imageError4; ?></span>
-        <br>
+        <br><br>
+        <label>Document:</label>
+        <p><?php echo $document1; ?></p>
+        <label for="document1">Sélectionner un premier document:</label><br>
+        <input type="file" id="document1" name="document1">
+        <span class="help-inline"><?php echo $documentError1; ?></span>
+        <br><br>
+        <label>Document:</label>
+        <p><?php echo $document2; ?></p>
+        <label for="document2">Sélectionner un second document:</label><br>
+        <input type="file" id="document2" name="document2">
+        <span class="help-inline"><?php echo $documentError2; ?></span>
+        <br><br>
     </form>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">

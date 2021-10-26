@@ -6,12 +6,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/vd2.ico" type="image/x-icon">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.1/morph/bootstrap.min.css'>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.bundle.min.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/morph/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic"
           rel="stylesheet"/>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
     <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
@@ -54,7 +54,7 @@ include("includes/navbar.html");
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                         aria-expanded="true" aria-controls="collapseOne">
-                    <h3>Cliquez ici pour connaître les nouveautés de cette version</h3>
+                    <b>Cliquez ici pour connaître les nouveautés de cette version</b>
                 </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -84,8 +84,8 @@ include("includes/navbar.html");
         </p>
         <?php
         $filename = "docs/Mon_CV.pdf";
-        $filesize1 = filesize($filename);
-        echo '<a href="docs/Mon_CV.pdf" download="Mon_CV" class="btn btn-info" target="_blank"><i class="fas fa-download"></i> Télécharger mon CV (<i class="fas fa-file-pdf"></i> ' . filesize($filename) / 1024 . ' KB)</a>';
+        $filesize = filesize($filename);
+        echo '<a href="docs/Mon_CV.pdf" download="Mon_CV" class="btn btn-info" target="_blank"><i class="fas fa-download"></i> Télécharger mon CV (<i class="fas fa-file-pdf"></i> ' . $filesize / 1024 . ' KB)</a>';
         ?>
 </section>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
