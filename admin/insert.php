@@ -234,29 +234,29 @@ function checkInput($data)
         $query->closeCursor();
         ?>
         <br>
-        <label for="image1">Sélectionner une première image:</label><br>
+        <label for="image1">Sélectionner une première image :</label><br>
         <input type="file" id="image1" name="image1">
         <span class="help-inline"><?php echo $imageError1; ?></span>
         <br>
-        <label for="image2">Sélectionner une deuxième image:</label><br>
+        <label for="image2">Sélectionner une deuxième image :</label><br>
         <input type="file" id="image2" name="image2">
         <span class="help-inline"><?php echo $imageError2; ?></span>
         <br>
-        <label for="image3">Sélectionner une troisième image:</label><br>
+        <label for="image3">Sélectionner une troisième image :</label><br>
         <input type="file" id="image3" name="image3">
         <span class="help-inline"><?php echo $imageError3; ?></span>
         <br>
-        <label for="image4">Sélectionner une quatrième image:</label><br>
+        <label for="image4">Sélectionner une quatrième image :</label><br>
         <input type="file" id="image4" name="image4">
         <span class="help-inline"><?php echo $imageError4; ?></span>
         <br>
-        <label for="document1">Sélectionner un premier document pour la documentation</label>
+        <label for="document1">Sélectionner un premier document pour la documentation :</label>
         <input type="file" id="document1" name="document1">
         <span class="help-inline"><?php echo $documentError1; ?></span>
         <br>
-        <label for="document2"></label>Sélectionner un deuxième document pour la documentation</label>
+        <label for="document2">Sélectionner un deuxième document pour la documentation :</label>
         <input type="file" id="document2" name="document2">
-        <span class="help-inline"></span><?php echo $documentError2; ?></span>
+        <span class="help-inline"><?php echo $documentError2; ?></span>
         <br>
         <button type="submit" class="btn btn-success"><i class="fas fa-pen"></i> Ajouter</button>
         <a class="btn btn-primary" href="index.php"><i class="far fa-arrow-alt-circle-left"></i> Retour</a>

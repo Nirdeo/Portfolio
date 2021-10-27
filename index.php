@@ -54,7 +54,7 @@ include("includes/navbar.html");
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                         aria-expanded="true" aria-controls="collapseOne">
-                    <b>Cliquez ici pour connaître les nouveautés de cette version</b>
+                    <b>Cliquez ici pour cacher les nouveautés de cette version</b>
                 </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -87,6 +87,7 @@ include("includes/navbar.html");
         $filesize = filesize($filename);
         echo '<a href="docs/Mon_CV.pdf" download="Mon_CV" class="btn btn-info" target="_blank"><i class="fas fa-download"></i> Télécharger mon CV (<i class="fas fa-file-pdf"></i> ' . $filesize / 1024 . ' KB)</a>';
         ?>
+        </div>
 </section>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_uzamaojr.json" background="transparent" speed="1"
