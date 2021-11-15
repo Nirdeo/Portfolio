@@ -85,7 +85,8 @@ include("includes/navbar.html");
         <?php
         $filename = "docs/Mon_CV.pdf";
         $filesize = filesize($filename);
-        echo '<a href="docs/Mon_CV.pdf" download="Mon_CV" class="btn btn-info" target="_blank"><i class="fas fa-download"></i> Télécharger mon CV (<i class="fas fa-file-pdf"></i> ' . $filesize / 1024 . ' KB)</a>';
+        $size = round($filesize/ 1024);
+        echo '<a href="docs/Mon_CV.pdf" download="Mon_CV" class="btn btn-info" target="_blank"><i class="fas fa-download"></i> Télécharger mon CV (<i class="fas fa-file-pdf"></i> ' . $size . ' KB)</a>';
         ?>
         </div>
 </section>
@@ -163,48 +164,61 @@ include("includes/navbar.html");
         <ul class="timeline">
             <!-- Timeline-->
             <li>
-                <div class="timeline-badge"><i class="fas fa-briefcase purplephp"></i></div>
+                <div class="timeline-badge"><i class="fas fa-briefcase"></i></div>
                 <div class="timeline-panel-container">
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h3>Symfony <i class="fab fa-symfony"></i></h3>
+                            <h4 class="">Apprentissage de Symfony</h4>
+                            <p class="text-mute"><small><i class="far fa-clock"></i> Octobre 2021</small></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><i class="fas fa-briefcase purplephp"></i></div>
+                <div class="timeline-panel-container-inverted">
                     <div class="timeline-panel pp">
                         <div class="timeline-heading">
                             <h3>PHP <i class="fab fa-php purplephp"></i></h3>
                             <h4 class="purplephp">Apprentissage de PHP</h4>
                             <p class="text-mute"><small><i class="far fa-clock"></i> Décembre 2020</small></p>
                         </div>
-                        <div class="timeline-body">
-                            <p>Apprentissage de PHP</p>
-                        </div>
                     </div>
                 </div>
             </li>
             <li>
                 <div class="timeline-badge"><i class="fas fa-briefcase bluejquery"></i></div>
-                <div class="timeline-panel-container-inverted">
+                <div class="timeline-panel-container">
                     <div class="timeline-panel bj">
                         <div class="timeline-heading">
                             <h3>jQuery <i class="fas fa-water bluejquery"></i></h3>
                             <h4 class="bluejquery">Apprentissage de jQuery</h4>
                             <p class="text-mute"><small><i class="far fa-clock"></i> Novembre 2020</small></p>
                         </div>
-                        <div class="timeline-body">
-                            <p>jQuery est un framework JavaScript permettant de réaliser des effets et des
-                                animations
-                            </p>
-                        </div>
                     </div>
                 </div>
             </li>
             <li>
                 <div class="timeline-badge"><i class="fas fa-briefcase purplebootstrap"></i></div>
-                <div class="timeline-panel-container">
+                <div class="timeline-panel-container-inverted">
                     <div class="timeline-panel pb">
                         <div class="timeline-heading">
                             <h3>BOOTSTRAP <i class="fab fa-bootstrap purplebootstrap"></i></h3>
                             <h4 class="purplebootstrap">Apprentissage de BOOTSTRAP</h4>
                             <p class="text-mute"><small><i class="far fa-clock"></i> Octobre 2020</small></p>
                         </div>
-                        <div class="timeline-body">
-                            <p>BOOTSTRAP est un framework CSS permettant de réaliser des sites responsives</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><i class="fas fa-briefcase"></i></div>
+                <div class="timeline-panel-container">
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h3>Wordpress <i class="fab fa-wordpress"></i></h3>
+                            <h4 class="bluejquery">Apprentissage de WordPress</h4>
+                            <p class="text-mute"><small><i class="far fa-clock"></i> Novembre 2020</small></p>
                         </div>
                     </div>
                 </div>
@@ -218,9 +232,6 @@ include("includes/navbar.html");
                             <h4 class="bluecss">Apprentissage de CSS</h4>
                             <p class="text-mute"><small><i class="far fa-clock"></i> Septembre 2020</small></p>
                         </div>
-                        <div class="timeline-body">
-                            <p>CSS permet de donner du style aux sites internets</p>
-                        </div>
                     </div>
                 </div>
             </li>
@@ -232,9 +243,6 @@ include("includes/navbar.html");
                             <h3>HTML <i class="fab fa-html5 orangehtml"></i></h3>
                             <h4 class="orangehtml">Apprentissage de HTML</h4>
                             <p class="text-mute"><small><i class="far fa-clock"></i> Septembre 2020</small></p>
-                        </div>
-                        <div class="timeline-body">
-                            <p>HTML permet de créer des sites internets</p>
                         </div>
                     </div>
                 </div>
@@ -278,9 +286,9 @@ include("includes/navbar.html");
                     ci-dessous:
                 </p>
                 <br>
-                <a href="mailto:victor.dedomenico@lyceestvincent.fr" target="_blank"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:victordedomenico.du60@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
                 <a href="tel:+33786381537" target="_blank"><i class="fas fa-phone-square-alt"></i></a>
-                <a href="https://www.github.com/Nirdeo" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.github.com/Nirdeo/" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/victor-de-domenico-755656202/" target="_blank"><i
                             class="fab fa-linkedin"></i></a>
             </div>

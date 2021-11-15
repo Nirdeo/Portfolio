@@ -97,11 +97,15 @@ function checkInput($data)
             <label>Image4:</label><?php echo ' ' . $item['image4_projet']; ?>
         </div>
         <div class="form-group">
-            <label>Documentation:</label><br>
             <?php
             $filename = '../docs/' . $item['document1_projet'];
             $filesize = filesize($filename);
-            echo '<a href="../docs/' . $item['document1_projet'] . '" download="Document1" class="btn btn-dark" target="_blank"><i class="fas fa-download"></i> ' . $item['document1_projet'] . ' (<i class="fas fa-file-pdf"></i> ' . $filesize / 1024 . ' KB)</a>';
+            $size = round($filesize/ 1024);
+            if ($item['document1_projet'] != null)
+            {
+                echo '<label>Documentation:</label><br>';
+                echo '<a href="../docs/' . $item['document1_projet'] . '" download="Document1" class="btn btn-dark" target="_blank"><i class="fas fa-download"></i> ' . $item['document1_projet'] . ' (<i class="fas fa-file-pdf"></i> ' . $size . ' KB)</a>';
+            }
             ?>
         </div>
     </form>
