@@ -6,35 +6,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/vd2.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/morph/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic"
-          rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <?php
+    include("includes/cdn.html");
+    ?>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
-    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-    <script>
-        Weglot.initialize({
-            api_key: 'wg_fbc39964ead27c5747a6a5c63214a84c5'
-        });
-    </script>
     <link rel="stylesheet" type="text/css" href="css/navbarstyle.css">
     <link rel="stylesheet" type="text/css" href="css/footerstyle.css">
     <link rel="stylesheet" type="text/css" href="css/contactstyle.css">
-    <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script><!-- CDN Typer.js-->
+    <script src="script.js"></script>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="0">
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="0" tabindex="0">
 <!-- Menu principal -->
 <?php
 include("includes/navbar.html");
 ?>
 <!-- Introduction -->
 <section id="introduction" class="container-fluid">
-    <div class="col-xs-8 col-md-4 profile-picture"><img src="img/pdp.png" class="rounded-circle" alt="ma photo">
-    </div>
+    <div class="col-xs-8 col-md-4 profile-picture"><img src="img/pdp.png" class="rounded-circle" alt="ma photo"></div>
     <div class="heading">
         <h1>
             <strong>Victor De Domenico</strong>
@@ -46,25 +35,7 @@ include("includes/navbar.html");
             <span class="cursor" data-owner="main"></span> <!-- Typer.js-->
         </h2>
         <br>
-        <h3>Bienvenue sur mon Portfolio version 1<span class="blue">.</span>5 !</h3>
-    </div>
-    <!-- Changelog -->
-    <div class="container col-md-4 accordion" id="accordion">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                        aria-expanded="true" aria-controls="collapseOne">
-                    <b>Cliquez ici pour cacher les nouveautés de cette version</b>
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                 data-parent="#accordion">
-                <div class="accordion-body">
-                    <strong>- Changement de version de Bootstrap V4 -> V5</strong><br>
-                    <strong>- Ajout de nouveaux projets</strong>
-                </div>
-            </div>
-        </div>
+        <h3>Bienvenue sur mon Portfolio version 1<span class="blue">.</span>6 !</h3>
     </div>
     <br>
 </section>
@@ -79,20 +50,20 @@ include("includes/navbar.html");
                     href="https://www.saint-dominique-mortefontaine-60.fr/" target="_blank">
                 L'Institut Saint-Dominique à Mortefontaine.</a><br>
             Je suis actuellement en seconde année de BTS SIO option
-            SLAM au <a href="https://enseignement-superieur.lycee-stvincent.fr/" target="_blank">Lycée Saint-Vincent
-                à Senlis.</a>
+            SLAM au <a href="https://enseignement-superieur.lycee-stvincent.fr/" target="_blank">Lycée Saint-Vincent à
+                Senlis.</a>
         </p>
         <?php
         $filename = "docs/Mon_CV.pdf";
         $filesize = filesize($filename);
-        $size = round($filesize/ 1024);
+        $size = round($filesize / 1024);
         echo '<a href="docs/Mon_CV.pdf" download="Mon_CV" class="btn btn-info" target="_blank"><i class="fas fa-download"></i> Télécharger mon CV (<i class="fas fa-file-pdf"></i> ' . $size . ' KB)</a>';
         ?>
-        </div>
+    </div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_jtbfg2nb.json" background="transparent" speed="1"
+                   style="height: 300px;" loop autoplay></lottie-player>
 </section>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets6.lottiefiles.com/packages/lf20_uzamaojr.json" background="transparent" speed="1"
-               style="height: 300px;" loop autoplay></lottie-player>
 <!-- Mes projets-->
 <section id="projets">
     <div class="container">
@@ -165,7 +136,7 @@ include("includes/navbar.html");
             <!-- Timeline-->
             <li>
                 <div class="timeline-badge"><i class="fas fa-briefcase"></i></div>
-                <div class="timeline-panel-container">
+                <div class="timeline-panel-container-inverted">
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h3>Symfony <i class="fab fa-symfony"></i></h3>
@@ -177,7 +148,7 @@ include("includes/navbar.html");
             </li>
             <li>
                 <div class="timeline-badge"><i class="fas fa-briefcase purplephp"></i></div>
-                <div class="timeline-panel-container-inverted">
+                <div class="timeline-panel-container">
                     <div class="timeline-panel pp">
                         <div class="timeline-heading">
                             <h3>PHP <i class="fab fa-php purplephp"></i></h3>
@@ -189,7 +160,7 @@ include("includes/navbar.html");
             </li>
             <li>
                 <div class="timeline-badge"><i class="fas fa-briefcase bluejquery"></i></div>
-                <div class="timeline-panel-container">
+                <div class="timeline-panel-container-inverted">
                     <div class="timeline-panel bj">
                         <div class="timeline-heading">
                             <h3>jQuery <i class="fas fa-water bluejquery"></i></h3>
@@ -201,12 +172,24 @@ include("includes/navbar.html");
             </li>
             <li>
                 <div class="timeline-badge"><i class="fas fa-briefcase purplebootstrap"></i></div>
-                <div class="timeline-panel-container-inverted">
+                <div class="timeline-panel-container">
                     <div class="timeline-panel pb">
                         <div class="timeline-heading">
-                            <h3>BOOTSTRAP <i class="fab fa-bootstrap purplebootstrap"></i></h3>
+                            <h3>Bootstrap <i class="fab fa-bootstrap purplebootstrap"></i></h3>
                             <h4 class="purplebootstrap">Apprentissage de BOOTSTRAP</h4>
                             <p class="text-mute"><small><i class="far fa-clock"></i> Octobre 2020</small></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><i class="fas fa-briefcase"></i></div>
+                <div class="timeline-panel-container-inverted">
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h3>WordPress <i class="fab fa-wordpress"></i></h3>
+                            <h4 class="bluejquery">Apprentissage de WordPress</h4>
+                            <p class="text-mute"><small><i class="far fa-clock"></i> Novembre 2020</small></p>
                         </div>
                     </div>
                 </div>
@@ -216,9 +199,9 @@ include("includes/navbar.html");
                 <div class="timeline-panel-container">
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h3>Wordpress <i class="fab fa-wordpress"></i></h3>
-                            <h4 class="bluejquery">Apprentissage de WordPress</h4>
-                            <p class="text-mute"><small><i class="far fa-clock"></i> Novembre 2020</small></p>
+                            <h3><i class="fab fa-cuttlefish"></i><i class="fas fa-hashtag"></i></h3>
+                            <h4 class="bluecss">Apprentissage de C#</h4>
+                            <p class="text-mute"><small><i class="far fa-clock"></i> Septembre 2020</small></p>
                         </div>
                     </div>
                 </div>
@@ -249,24 +232,16 @@ include("includes/navbar.html");
             </li>
         </ul>
         <div class="row">
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/logo-html5.png" alt="logo HTML5"
-                                                                          class="icon1"></div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/logo-css3.png" alt="logo CSS3"
-                                                                          class="icon1"></div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/logo-bootstrap4.png"
-                                                                          alt="logo BOOTSTRAP4" class="icon1"></div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/logo-jquery.png" alt="logo JQUERY"
-                                                                          class="icon1"></div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/html5.png" class="icon1"></div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/css3.png" class="icon1"></div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/bootstrap.png" class="icon1"></div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/jquery.png" class="icon1"></div>
         </div>
         <div class="row">
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/logo-wordpress.png"
-                                                                          alt="logo WORDPRESS" class="icon1"></div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/logo-python.png" alt="logo PYTHON"
-                                                                          class="icon1"></div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/logo-C.png" alt="logo C#"
-                                                                          class="icon1"></div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/logo-javascript.png"
-                                                                          alt="logo JAVASCRIPT" class="icon1"></div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/csharp.png" class="icon1"></div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/php.png" class="icon1"></div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/symfony.png" class="icon1"></div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"><img src="img/sql.png" class="icon1"></div>
         </div>
     </div>
 </section>
@@ -281,16 +256,17 @@ include("includes/navbar.html");
                 include("includes/contact.php");
                 ?>
                 <br>
-                <p class="text-primary">Vous pouvez également me contacter par mail ou téléphone ou sur l'un de mes
-                    réseaux sociaux en cliquant
-                    ci-dessous:
-                </p>
-                <br>
-                <a href="mailto:victordedomenico.du60@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+33786381537" target="_blank"><i class="fas fa-phone-square-alt"></i></a>
-                <a href="https://www.github.com/Nirdeo/" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/victor-de-domenico-755656202/" target="_blank"><i
-                            class="fab fa-linkedin"></i></a>
+                <div class="row">
+                    <div class="col-md-3"><a href="mailto:victordedomenico.du60@gmail.com"><img class="icon2"
+                                                                                                src="img/ios-mail-application.png"></a>
+                    </div>
+                    <div class="col-md-3"><a href="tel:+33786381537"><img class="icon2" src="img/whatsapp.png"></a>
+                    </div>
+                    <div class="col-md-3"><a href="https://www.github.com/Nirdeo/"><img class="icon2"
+                                                                                        src="img/github.png"></a></div>
+                    <div class="col-md-3"><a href="https://www.linkedin.com/in/victor-de-domenico-755656202/"><img
+                                    class="icon2" src="img/linkedin.png"></a></div>
+                </div>
             </div>
         </div>
     </section>

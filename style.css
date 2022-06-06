@@ -1,7 +1,7 @@
 /* GENERAL */
 
 body {
-    font-family: "Lato", sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 h1,
@@ -35,10 +35,6 @@ section .heading {
     display: inline-block;
 }
 
-a {
-    color: #117298;
-}
-
 .little {
     margin: 0px 0px 0px 0px;
 }
@@ -55,10 +51,6 @@ a {
     display: none;
 }
 
-.card {
-    max-width: 20rem;
-    margin-left: 39.5%;
-}
 
 
 /* INTRODUCTION */
@@ -126,6 +118,21 @@ a {
 
 .carousel-item h5 {
     text-transform: uppercase;
+    color: black;
+    /* margin-bottom: 22%; */
+    font-size: xxx-large;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 0px 19% 0px;
+    text-align: center;
+}
+
+.carousel-caption > a {
+    text-decoration: none;
 }
 
 .sp p {
@@ -143,9 +150,11 @@ a {
 }
 
 .bw {
-    -webkit-filter: grayscale(100%);
-    /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
+    filter: blur(10px) grayscale(205%);
+}
+
+.bw:hover {
+    display: none;
 }
 
 .underline {
@@ -316,6 +325,11 @@ a {
     width: 43%;
     height: 91%;
     margin-left: 29%;
+}
+
+.icon2 {
+    width: 110px;
+    height: 110px;
 }
 
 

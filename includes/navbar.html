@@ -1,33 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navigation">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">Victor De Domenico</a>
         <button aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-                data-bs-target="#menu"
-                data-bs-toggle="collapse" type="button">
+                data-bs-target="#menu" data-bs-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#introduction"><span class="visually-hidden">(current)</span> <i
-                            class="fas fa-home"></i> Accueil</a>
+                    <a class="nav-link active" href="index.php#introduction"><span class="visually-hidden">(current)</span><i class="fas fa-home"></i> Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about"><i class="fas fa-address-card"></i> A Propos</a>
+                    <a class="nav-link" href="index.php#about"><i class="fas fa-address-card"></i> A Propos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#projets"><i class="fas fa-project-diagram"></i> Mes Projets</a>
+                    <a class="nav-link" href="index.php#projets"><i class="fas fa-project-diagram"></i> Mes Projets</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#competences"><i class="fas fa-code"></i> Mes Compétences</a>
+                    <a class="nav-link" href="index.php#competences"><i class="fas fa-code"></i> Mes
+                        Compétences</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact"><i class="fas fa-address-book"></i> Me Contacter</a>
+                    <a class="nav-link" href="index.php#contact"><i class="fas fa-address-book"></i> Me Contacter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="certifications.php"><i class="fas fa-certificate"></i> Certifications
+                        complémentaires</a>
                 </li>
             </ul>
         </div>
-        <button class="btn btn-secondary" onclick="location.href='admin/login.php';" type="button"><i
-                class="fas fa-tools"></i> Connexion
-        </button>
+        <a class="btn btn-secondary" href="admin/login.php" type="button"><i class="fas fa-tools"></i>
+            Connexion
+        </a>
     </div>
 </nav>

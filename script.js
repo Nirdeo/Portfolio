@@ -1,10 +1,18 @@
-$(function () {
+$(document).ready(function () {
+    $("#myTable").DataTable({
+        language: {
+            url: "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json",
+        },
+    });
     /*Effet Jquery 1v2*/
     $("#flip").click(function () {
         $("#panel").slideToggle("slow");
     });
     /* Tooltip */
-    $('[data-toggle="tooltip"]').tooltip();
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
     $(".icon1").mouseenter(function () {
         $(".icon1").animate({
             left: "250px",
@@ -23,17 +31,8 @@ $(function () {
         }
     );
     /* Effet scroll */
-    $(".navbar a, footer a").on("click", function (event) {
-        event.preventDefault();
-        var hash = this.hash;
-        $("body,html").animate(
-            {
-                scrollTop: $(hash).offset().top - 100,
-            },
-            900,
-            function () {
-                window.location.hash = hash;
-            }
-        );
+    $('.back-to-top').click(function () {
+        $('html, body').animate({scrollTop: 0}, 800);
+        return false;
     });
 });
