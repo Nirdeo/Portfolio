@@ -43,8 +43,8 @@ CREATE TABLE `certifications` (
 --
 
 INSERT INTO `certifications` (`id_cert`, `titre_cert`, `description_cert`, `date_cert`, `fichier_cert`, `technologie_cert`, `illustration_cert`, `lien_cert`) VALUES
-(1, 'Certification Pix', 'Cette certification est destinée aux personnes qui souhaitent obtenir un certificat permettant de valoriser leurs compétences numériques.', '2022-03-28', 'attestation-pix-20220328.pdf', 'Compétences numériques', 'pix.png', 'https://tinyurl.com/yck9zyuv'),
-(2, 'Certification Udemy', 'Cette certification est destinée aux personnes qui souhaitent obtenir un certificat de développeur web.', '2022-04-07', 'UC-7dc27182-859e-47f5-84e1-666d4d9d3a3d.pdf ', 'HTML, CSS, Bootstrap, JavaScript, jQuery, PHP, SQL, WordPress', 'udemy.png', 'https://tinyurl.com/bdzaafst'),
+(1, 'Certification Pix', 'Cette certification est destinée aux personnes qui souhaitent obtenir un certificat permettant de valoriser leurs compétences numériques.', '2022-03-28', 'attestation-pix.pdf', 'Compétences numériques', 'pix.png', 'https://tinyurl.com/yck9zyuv'),
+(2, 'Certification Udemy', 'Cette certification est destinée aux personnes qui souhaitent obtenir un certificat de développeur web.', '2022-04-07', 'attestation-udemy.pdf', 'HTML, CSS, Bootstrap, JavaScript, jQuery, PHP, SQL, WordPress', 'udemy.png', 'https://tinyurl.com/bdzaafst'),
 (3, 'Certification Voltaire', 'Cette certification est destinée aux personnes qui souhaitent obtenir un certificat permettant de garantir leurs niveaux d\'orthographes.', NULL, NULL, 'Niveau d\'orthographe', 'voltaire.png', 'https://tinyurl.com/2p833jt2'),
 (4, 'Certification OpenClassrooms', 'Cette certification est destinée aux personnes qui souhaitent obtenir un certificat de développeur web.', NULL, NULL, 'Python, Django', 'openclassrooms.png', 'https://tinyurl.com/2m953z73');
 
